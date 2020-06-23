@@ -52,7 +52,7 @@
                             <a class="nav-link" href="registrazione.aspx">Registrati</a>
                           </li>
                           <li class="nav-item">
-                            <a id="linkEsc" class="nav-link" href="#" runat:"server">Esci</a>
+                            <a class="nav-link" href="#" runat:"server">Esci</a>
                           </li>  
 
                         </ul>
