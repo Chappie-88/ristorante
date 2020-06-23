@@ -12,6 +12,7 @@
                                <center>
                                    <h3>Accedi per vedere prenotazioni</h3>
                                </center> 
+                                <asp:Label ID="LBLnewUser" runat="server" Text=""></asp:Label>
                             </div>
                         </div>
 

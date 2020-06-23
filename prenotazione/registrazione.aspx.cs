@@ -30,7 +30,7 @@ namespace prenotazione
                 p.pass = TXTpass.Text;
 
                 DAL.insertUser(p);
-                Session["NewUsere"] = true;
+                Session["NewUser"] = true;
                 Response.Redirect("accesso.aspx", true);
 
             }

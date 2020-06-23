@@ -11,7 +11,12 @@ namespace prenotazione
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+            if (Session["NewUser"] != null) 
+            {
+                LBLnewUser.Text = "Registrazione effettuata con successo";
+                Session.Contents.Remove("NewUser");
+            }
         }
     }
 }
