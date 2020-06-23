@@ -13,5 +13,11 @@ namespace prenotazione
         {
 
         }
+
+		protected void BTMLog_Click(object sender, EventArgs e)
+		{
+            Response.Redirect("registrazione.aspx", true);
+
+        }
     }
 }

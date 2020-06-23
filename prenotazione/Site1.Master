@@ -48,11 +48,11 @@
                             <a class="nav-link" href="#">Accedi</a>
                           </li>
                           <li class="nav-item">
-                              <asp:Button ID="Button1" runat="server" Text="Registrati" />
+                              <asp:Button ID="BTMLog" runat="server" Text="Registrati" OnClick="BTMLog_Click" />
                             <a class="nav-link" href="registrazione.aspx">Registrati</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#" runat:"server">Esci</a>
+                            <a class="nav-link" href="#">Esci</a>
                           </li>  
 
                         </ul>
