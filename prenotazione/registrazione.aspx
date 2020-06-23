@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container"> <%--effetturare verifica: controllare che tutti i campi siano compilati--%>
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <div class="card">
@@ -43,7 +43,7 @@
                         
                             <div class="col-md-6">
                                <label>Email</label>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox6" runat="server" 
+                                    <asp:TextBox CssClass="form-control" ID="TXTmail" runat="server" 
                                         placeholder="Email" TextMode="Email"></asp:TextBox> 
                             </div>
                         </div>
@@ -59,8 +59,8 @@
                                     </center>
                                 </div>
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Registrati" />
-                                </div>
+                                    <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Registrati" OnClick="Button1_Click" />
+                                    <asp:Label ID="LBLerrMail" runat="server" Text=""></asp:Label></div>
 
                                 
                             </div>

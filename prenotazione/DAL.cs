@@ -39,18 +39,18 @@ namespace prenotazione
             }
         }
 
-        public static bool Login(string pass) /*Verifica che la mail non sia gia inserita*/
+        public static bool checkMail(string mail) /*Verifica che la mail non sia gia inserita*/
         {
             bool validuser = false;
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [ID] FROM [dbo].[Persons] WHERE [Password]=@pass";
+            string query = "SELECT [ID] FROM [dbo].[Persons] WHERE [mail]=@mail";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     DataTable dt = new DataTable();
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@pass", pass);
+                    command.Parameters.AddWithValue("@mail", mail);
                     connection.Open();
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     { da.Fill(dt); }

@@ -13,5 +13,13 @@ namespace prenotazione
         {
 
         }
-    }
+
+		protected void Button1_Click(object sender, EventArgs e)
+		{
+            if (DAL.checkMail(TXTmail.Text)) 
+            {
+                LBLerrMail.Text = "* ATTENZIONE indirizzo mail gia in uso";
+            }
+		}
+	}
 }
