@@ -10,18 +10,18 @@ namespace prenotazione
 {
 	public class DAL
 	{  
-        public static void insertPerson(Person p)
+        public static void insertUser(Person p)
         {/*correggere la insert con riferimento al DB corretto,*/
 
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "insert into [dbo].[Persons] values (newid(), @username, @password, @nome, @cognome, @eta, getdate(),0)";
+            string query = "insert into [dbo].[account] values (newid(), @name, @surname, @tel, @email, @pass)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@name", p.name);
-                    command.Parameters.AddWithValue("@cognome", p.surname);
+                    command.Parameters.AddWithValue("@surname", p.surname);
                     command.Parameters.AddWithValue("@email", p.email);
                     command.Parameters.AddWithValue("@tel", p.tel);
                     command.Parameters.AddWithValue("@pass", p.pass);
@@ -43,7 +43,7 @@ namespace prenotazione
         {
             bool validuser = false;
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [ID] FROM [dbo].[Persons] WHERE [mail]=@mail";
+            string query = "SELECT [mail] FROM [dbo].[account] WHERE [mail]=@mail";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try

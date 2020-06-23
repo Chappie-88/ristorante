@@ -15,31 +15,31 @@ namespace prenotazione
 	{
 
 		/// <summary>
-		/// Controllo TextBox3.
+		/// Controllo TXTname.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox3;
+		protected global::System.Web.UI.WebControls.TextBox TXTname;
 
 		/// <summary>
-		/// Controllo TextBox4.
+		/// Controllo TXTsurname.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox4;
+		protected global::System.Web.UI.WebControls.TextBox TXTsurname;
 
 		/// <summary>
-		/// Controllo TextBox5.
+		/// Controllo TXTtel.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox5;
+		protected global::System.Web.UI.WebControls.TextBox TXTtel;
 
 		/// <summary>
 		/// Controllo TXTmail.
@@ -51,13 +51,13 @@ namespace prenotazione
 		protected global::System.Web.UI.WebControls.TextBox TXTmail;
 
 		/// <summary>
-		/// Controllo TextBox2.
+		/// Controllo TXTpass.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox2;
+		protected global::System.Web.UI.WebControls.TextBox TXTpass;
 
 		/// <summary>
 		/// Controllo Button1.
