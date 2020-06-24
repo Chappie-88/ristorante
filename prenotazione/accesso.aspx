@@ -26,18 +26,18 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" 
+                                    <asp:TextBox CssClass="form-control" ID="TXTmail" runat="server" 
                                         placeholder="Email"></asp:TextBox>
                                 </div>
                           
                        
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" 
+                                    <asp:TextBox CssClass="form-control" ID="TXTpass" runat="server" 
                                         placeholder="Password" TextMode="Password"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Accedi" />
+                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Accedi" OnClick="Button1_Click" />
                                 </div>
 
                                 <div class="form-group">

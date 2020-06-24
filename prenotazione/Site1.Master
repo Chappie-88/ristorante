@@ -45,7 +45,7 @@
                             <a class="nav-link" href="#">Prenotazioni</a>
                           </li>  
                           <li class="nav-item active">
-                            <asp:Button ID="BTMsinging" runat="server" Text="Accedi" OnClick="BTMlogin_Click" />
+                            <asp:Button ID="BTMlogin" runat="server" Text="Accedi" OnClick="BTMlogin_Click" />
                               <a class="nav-link" href="#">Accedi</a>
                           </li>
                           <li class="nav-item">

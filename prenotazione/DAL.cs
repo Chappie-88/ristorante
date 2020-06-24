@@ -37,7 +37,7 @@ namespace prenotazione
                     connection.Close();
                 }
             }
-        }
+        } /*Permette di registrare nuovo utente*/
 
         public static bool checkMail(string mail) /*Verifica che la mail non sia gia inserita*/
         {
@@ -51,6 +51,39 @@ namespace prenotazione
                     DataTable dt = new DataTable();
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@mail", mail);
+                    connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    { da.Fill(dt); }
+                    if (dt.Rows.Count == 1)
+
+                        validuser = true;
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return validuser;
+        }
+
+        public static bool Login(string mail, string pass)
+        {
+            bool validuser = false;
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "SELECT [ID] FROM [dbo].[account] WHERE [mail]=@mail AND [Pass]=@pass";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@mail", mail);
+                    command.Parameters.AddWithValue("@pass", pass);
                     connection.Open();
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     { da.Fill(dt); }

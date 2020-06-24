@@ -33,13 +33,13 @@ namespace prenotazione
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
-		/// Controllo BTMsinging.
+		/// Controllo BTMlogin.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button BTMsinging;
+		protected global::System.Web.UI.WebControls.Button BTMlogin;
 
 		/// <summary>
 		/// Controllo BTMLog.
