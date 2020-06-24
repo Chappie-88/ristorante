@@ -7,30 +7,44 @@ using System.Web.UI.WebControls;
 
 namespace prenotazione
 {
-    public partial class Site1 : System.Web.UI.MasterPage
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class Site1 : System.Web.UI.MasterPage
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			BTMesc.Visible =true;
 			if (Session["islogged"] == null)
 			{
 				BTMesc.Visible = false;
+				switch (Session["Page"])
+				{
+					case "accesso":
+						BTMlogin.Visible = false;
+						break;
+					case "registrazione":
+						BTMLog.Visible = false;
+						break;
+				}
 			}
+			else
+			{
+				BTMlogin.Visible = false;
+				BTMLog.Visible = false;
+			}
+			
 
-			//switch (Session["Page"])
-			//{
-			//    case ("accesso"); }
+			
 
 		}
 
 		protected void BTMnewLog_Click(object sender, EventArgs e)
 		{
-            Response.Redirect("registrazione.aspx", true);
+			Response.Redirect("registrazione.aspx", true);
 
-        }
+		}
 
 		protected void BTMlogin_Click(object sender, EventArgs e)
 		{
-            Response.Redirect("accesso.aspx", true);
-        }
+			Response.Redirect("accesso.aspx", true);
+		}
 	}
 }
