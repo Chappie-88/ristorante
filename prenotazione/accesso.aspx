@@ -37,7 +37,7 @@
                                         placeholder="Password" TextMode="Password"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Accedi" OnClick="Button1_Click" />
+                                    <asp:Button class="btn btn-primary btn-block btn-lg" ID="BTMaccedi" runat="server" Text="Accedi" OnClick="BTMaccedi_Click" />
                                 </div>
 
                                 <div class="form-group">

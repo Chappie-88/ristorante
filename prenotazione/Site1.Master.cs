@@ -11,8 +11,16 @@ namespace prenotazione
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+			if (Session["islogged"] == null)
+			{
+				BTMesc.Visible = false;
+			}
 
-        }
+			//switch (Session["Page"])
+			//{
+			//    case ("accesso"); }
+
+		}
 
 		protected void BTMnewLog_Click(object sender, EventArgs e)
 		{

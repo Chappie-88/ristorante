@@ -11,9 +11,9 @@ namespace prenotazione
     {
         protected void Page_Load(object sender, EventArgs e)
         {/*nascondere pulsante accedi ed esci*/
-            
+            Session["Page"] = "accesso";
 
-            if (Session["login"] != null)
+            if (Session["islogged"] != null)
             {
                 Response.Redirect("homepage.aspx", true);
             }
@@ -25,9 +25,10 @@ namespace prenotazione
             
         }
 
-		protected void Button1_Click(object sender, EventArgs e)
+		protected void BTMaccedi_Click(object sender, EventArgs e)
 		{
-            if (TXTmail.Text == "") 
+            if (TXTmail.Text != "")
+            {
                 if (TXTpass.Text == "")
                 { LBLnewUser.Text = "Inserire mail e password per accedere"; }
                 else
@@ -36,10 +37,11 @@ namespace prenotazione
                     {
                         Session["username"] = "prova";
                         Session["islogged"] = true;
-                        /*Response.Redirect(".aspx", true); */ /*inserire link a pagina di prenotazione*/
+                        Response.Redirect("homepage.aspx", true);  /*inserire link a pagina di prenotazione*/
                     }
                     LBLnewUser.Text = "Indirizzo mail o Password sconosciuti, verificare e riprovare, oppure registrarsi";
                 }
+            }
         }
 	}
 }

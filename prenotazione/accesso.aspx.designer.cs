@@ -42,12 +42,12 @@ namespace prenotazione
 		protected global::System.Web.UI.WebControls.TextBox TXTpass;
 
 		/// <summary>
-		/// Controllo Button1.
+		/// Controllo BTMaccedi.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
+		protected global::System.Web.UI.WebControls.Button BTMaccedi;
 	}
 }

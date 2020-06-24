@@ -53,6 +53,7 @@
                             <a class="nav-link" href="registrazione.aspx">Registrati</a>
                           </li>
                           <li class="nav-item">
+                              <asp:Button ID="BTMesc" runat="server" Text="ESCI" />
                             <a class="nav-link" href="#">Esci</a>
                           </li>  
 
