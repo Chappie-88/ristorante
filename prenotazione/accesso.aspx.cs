@@ -27,13 +27,19 @@ namespace prenotazione
 
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-            if (DAL.Login(TXTmail.Text, TXTpass.Text))
-            {
-                Session["username"] = "prova";
-                Session["islogged"] = true;
-                /*Response.Redirect(".aspx", true); */ /*inserire link a pagina di prenotazione*/
-            }
-            LBLnewUser.Text = "Indiritto mail o Password sconosciuti, verificare e riprovare, oppure registrarsi";
+            if (TXTmail.Text == "") 
+                if (TXTpass.Text == "")
+                { LBLnewUser.Text = "Inserire mail e password per accedere"; }
+                else
+                {
+                    if (DAL.Login(TXTmail.Text, TXTpass.Text))
+                    {
+                        Session["username"] = "prova";
+                        Session["islogged"] = true;
+                        /*Response.Redirect(".aspx", true); */ /*inserire link a pagina di prenotazione*/
+                    }
+                    LBLnewUser.Text = "Indirizzo mail o Password sconosciuti, verificare e riprovare, oppure registrarsi";
+                }
         }
 	}
 }
