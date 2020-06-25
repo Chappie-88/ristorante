@@ -9,7 +9,9 @@ using System.Web.Configuration;
 namespace prenotazione
 {
 	public class DAL
-	{  
+	{
+        public static string ID = null;
+        public static string userlogged = null;
         public static void insertUser(Person p)
         {/*correggere la insert con riferimento al DB corretto,*/
 
@@ -75,7 +77,7 @@ namespace prenotazione
         {
             bool validuser = false;
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [ID] FROM [dbo].[account] WHERE [mail]=@mail AND [Pass]=@pass";
+            string query = "SELECT [ID], [name], [surname] FROM [dbo].[account] WHERE [mail]=@mail AND [Pass]=@pass";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -88,9 +90,14 @@ namespace prenotazione
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     { da.Fill(dt); }
                     if (dt.Rows.Count == 1)
-                                        
-                            validuser = true;
-                        
+                    {
+                        validuser = true;
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            ID = row["ID"].ToString();
+                            userlogged = row["name"].ToString() + " " + row["surname"].ToString();
+                             }
+                    }
 
 
                 }
@@ -104,6 +111,8 @@ namespace prenotazione
                 }
             }
             return validuser;
-        }
+        } /*effettua la log-in e se confermata restituisce ID*/
+
+       
     }
 }

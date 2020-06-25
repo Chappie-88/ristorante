@@ -35,11 +35,12 @@ namespace prenotazione
                 {
                     if (DAL.Login(TXTmail.Text, TXTpass.Text))
                     {
-                        Session["username"] = "prova";
+                        Session["IDuser"] = DAL.ID;
                         Session["islogged"] = true;
                         Response.Redirect("homepage.aspx", true);  /*inserire link a pagina di prenotazione*/
                     }
                     LBLnewUser.Text = "Indirizzo mail o Password sconosciuti, verificare e riprovare, oppure registrarsi";
+                   
                 }
             }
         }

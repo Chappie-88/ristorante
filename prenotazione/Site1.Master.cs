@@ -29,6 +29,8 @@ namespace prenotazione
 			{
 				BTMlogin.Visible = false;
 				BTMLog.Visible = false;
+				Session["islogged"] = DAL.userlogged;
+				LBLuser.Text = "Benvenuto " + DAL.userlogged;
 			}
 			
 
@@ -45,6 +47,14 @@ namespace prenotazione
 		protected void BTMlogin_Click(object sender, EventArgs e)
 		{
 			Response.Redirect("accesso.aspx", true);
+		}
+
+		protected void BTMesc_Click(object sender, EventArgs e)
+		{
+			DAL.userlogged = null;
+			DAL.ID = null;
+			Session.Contents.RemoveAll();
+
 		}
 	}
 }
