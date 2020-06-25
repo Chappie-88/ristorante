@@ -10,7 +10,7 @@ namespace prenotazione
 	public partial class Site1 : System.Web.UI.MasterPage
 	{
 		protected void Page_Load(object sender, EventArgs e)
-		{/*commento di prova*/
+		{/*risposta al commento di prova, ora pusho*/
 			BTMesc.Visible =true;
 			if (Session["islogged"] == null)
 			{
