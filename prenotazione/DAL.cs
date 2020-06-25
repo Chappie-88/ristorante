@@ -88,8 +88,10 @@ namespace prenotazione
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     { da.Fill(dt); }
                     if (dt.Rows.Count == 1)
+                                        
+                            validuser = true;
+                        
 
-                        validuser = true;
 
                 }
                 catch (Exception ex)
