@@ -31,8 +31,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Seleziona un giorno</label>
-                                    <input class="form-control" id="date" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy"/>
-					
+                                    <asp:TextBox CssClass="form-control" id="date" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy" runat="server" 
+                                        ></asp:TextBox>
                                  
 							
                                     <script>

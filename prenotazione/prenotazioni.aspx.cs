@@ -17,6 +17,10 @@ namespace prenotazione
 		}
 		protected void BTMPrenota_Click(object sender, EventArgs e)
 		{
+			Booking b = new Booking();
+			b.ID = Guid.Parse (Session["IDuser"].ToString());
+			//b.dataPrenotazione = ;
+
 
 		}
 	}
