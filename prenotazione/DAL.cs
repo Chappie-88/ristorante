@@ -113,26 +113,18 @@ namespace prenotazione
             return validuser;
         } /*effettua la log-in e se confermata restituisce ID*/
 
-        public static void insertBooking(Person p)
+        public static void insertBooking(Booking b)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "insert into [dbo].[Persons] values (newid(), @username, @password, @nome, @cognome, @eta, getdate(),0)";
+            string query = "insert into [dbo].[Prenotazioni] values (@id, @DataPrenotazione, @prenotati)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    if (string.IsNullOrEmpty(p.Username))
-                        command.Parameters.AddWithValue("@username", DBNull.Value);
-                    else
-                        command.Parameters.AddWithValue("@username", p.Username);
-                    if (string.IsNullOrEmpty(p.Password))
-                        command.Parameters.AddWithValue("@password", DBNull.Value);
-                    else
-                        command.Parameters.AddWithValue("@password", p.Password);
-                    command.Parameters.AddWithValue("@nome", p.Nome);
-                    command.Parameters.AddWithValue("@cognome", p.Cognome);
-                    command.Parameters.AddWithValue("@eta", p.Eta);
+                    command.Parameters.AddWithValue("@id", b.ID);
+                    command.Parameters.AddWithValue("@DataPrenotazone", b.dataPrenotazione);
+                    command.Parameters.AddWithValue("@prenotati", b.prenotati);
                     connection.Open();
                     command.ExecuteNonQuery();
                 }
