@@ -48,18 +48,20 @@ namespace prenotazione
                 }
             }
         }
-
         private void GenerateBookingTable(Guid ID)
         {
             TBLBooking.Rows.Clear();
             TableRow headerRow = new TableRow();
             TableCell dataHeaderCell = new TableCell();
             TableCell bookingHeaderCell = new TableCell();
+            TableCell deleteHeaderCell = new TableCell();
             dataHeaderCell.Text = "Data prenotazione";
             bookingHeaderCell.Text = "Posti prenotati";
+            deleteHeaderCell.Text =  "" ;
             headerRow.Style.Add("font-weight", "bold");
             headerRow.Cells.Add(dataHeaderCell);
             headerRow.Cells.Add(bookingHeaderCell);
+            headerRow.Cells.Add(deleteHeaderCell);
             TBLBooking.Rows.Add(headerRow);
             TBLBooking.Attributes.Add("class", "table");
 
@@ -70,7 +72,7 @@ namespace prenotazione
                 TableCell dateCell = new TableCell();
                 TableCell prenotaticell = new TableCell();
                 //TableCell editButtonCell = new TableCell();
-                //TableCell deleteButtonCell = new TableCell();
+                TableCell deleteButtonCell = new TableCell();
                 dateCell.Text = b.dataPrenotazione.ToString();
                 prenotaticell.Text = b.prenotati.ToString();
                 //Button editButton = new Button();
@@ -80,17 +82,17 @@ namespace prenotazione
                 //editButton.Attributes.Add("class", "btn btn-warning btn-sm");
                 //editButtonCell.Controls.Add(editButton);
 
-                //Button deleteButton = new Button();
-                //deleteButton.ID = p.ID.ToString() + "delete";
-                //deleteButton.Text = "Delete";
+                Button deleteButton = new Button();
+                deleteButton.ID = b.ID.ToString() + "delete";
+                deleteButton.Text = "Delete";
                 //deleteButton.Click += this.Delete_Click;
-                //deleteButton.Attributes.Add("class", "btn btn-danger btn-sm");
-                //deleteButtonCell.Controls.Add(deleteButton);
+                deleteButton.Attributes.Add("class", "btn btn-danger btn-sm");
+                deleteButtonCell.Controls.Add(deleteButton);
 
                 row.Cells.Add(dateCell);
                 row.Cells.Add(prenotaticell);
                 //row.Cells.Add(editButtonCell);
-                //row.Cells.Add(deleteButtonCell);
+                row.Cells.Add(deleteButtonCell);
                 TBLBooking.Rows.Add(row);
             }
             TBLBooking.DataBind();
