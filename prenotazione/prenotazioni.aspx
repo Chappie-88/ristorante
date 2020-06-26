@@ -1,7 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="prenotazioni.aspx.cs" Inherits="prenotazione.prenotazioni" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <!-- Bootstrap DatePicker -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<!-- Bootstrap DatePicker -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
+
+
+
+
+
+
+
+
      <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
@@ -27,7 +40,19 @@
                                 <div class="form-group">
                                     <label>Seleziona un giorno</label>
                                     <input class="form-control" id="date" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy"/>
-
+					
+                                 
+							
+                                    <script>
+                                        $(document).ready(function () {
+                                            $('#date').datepicker({
+                                                theme: 'bootstrap',
+                                                outputFormat: 'dd.MM.yyyy',
+                                            });
+                                        });
+                                    </script>
+                                    
+                                   
                                 </div>
                           
                        
