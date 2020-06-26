@@ -15,13 +15,13 @@ namespace prenotazione
 	{
 
 		/// <summary>
-		/// Controllo date.
+		/// Controllo TXTdate.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox date;
+		protected global::System.Web.UI.WebControls.TextBox TXTdate;
 
 		/// <summary>
 		/// Controllo TXTnPrenotati.
@@ -40,5 +40,14 @@ namespace prenotazione
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button BTMprenota;
+
+		/// <summary>
+		/// Controllo LBLprenotazione.
+		/// </summary>
+		/// <remarks>
+		/// Campo generato automaticamente.
+		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label LBLprenotazione;
 	}
 }
