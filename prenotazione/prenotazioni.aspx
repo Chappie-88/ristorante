@@ -31,7 +31,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Seleziona un giorno</label>
-                                    <asp:TextBox CssClass="form-control it-date-datepicker" id="date" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy" runat="server" ></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control it-date-datepicker" id="TXTdate" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy" runat="server"></asp:TextBox>
                                  
 							
                                     <script>
@@ -56,7 +56,7 @@
 
                                 <div class="form-group">
                                      <asp:Button class="btn btn-info btn-block btn-lg" ID="BTMprenota" runat="server" Text="Prenota" OnClick="BTMPrenota_Click" />
-                                    
+                                     <asp:Label ID="LBLprenotazione" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </div>                            
