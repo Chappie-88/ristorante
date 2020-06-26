@@ -10,7 +10,7 @@ namespace prenotazione
 	public partial class prenotazioni : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
-		{
+		{if (Session["islogged"] == null) { Response.Redirect("homepage.aspx", true); }
 
 		}
 	}
