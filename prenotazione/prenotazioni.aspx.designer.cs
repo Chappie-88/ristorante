@@ -11,34 +11,34 @@ namespace prenotazione
 {
 
 
-	public partial class prenotazioni
-	{
+    public partial class prenotazioni
+    {
 
-		/// <summary>
-		/// Controllo date.
-		/// </summary>
-		/// <remarks>
-		/// Campo generato automaticamente.
-		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox date;
+        /// <summary>
+        /// Controllo date.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox date;
 
-		/// <summary>
-		/// Controllo TXTnPrenotati.
-		/// </summary>
-		/// <remarks>
-		/// Campo generato automaticamente.
-		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TXTnPrenotati;
+        /// <summary>
+        /// Controllo TXTnPrenotati.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TXTnPrenotati;
 
-		/// <summary>
-		/// Controllo BTMprenota.
-		/// </summary>
-		/// <remarks>
-		/// Campo generato automaticamente.
-		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button BTMprenota;
-	}
+        /// <summary>
+        /// Controllo BTMprenota.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BTMprenota;
+    }
 }
