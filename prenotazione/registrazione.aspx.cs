@@ -32,7 +32,7 @@ namespace prenotazione
 
                 DAL.insertUser(p);
                 Session["NewUser"] = true;
-                Response.Redirect("accesso.aspx", true);
+                Response.Redirect("homepage.aspx", true);
 
             }
 		}

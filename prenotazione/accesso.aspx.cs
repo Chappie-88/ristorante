@@ -15,7 +15,7 @@ namespace prenotazione
 
             if (Session["islogged"] != null)
             {
-                Response.Redirect("homepage.aspx", true);
+                Response.Redirect(".aspx", true);
             }
             if (Session["NewUser"] != null) 
             {
@@ -37,7 +37,7 @@ namespace prenotazione
                     {
                         Session["IDuser"] = DAL.ID;
                         Session["islogged"] = true;
-                        Response.Redirect("homepage.aspx", true);  /*inserire link a pagina di prenotazione*/
+                        Response.Redirect("prenotazioni.aspx", true);  /*inserire link a pagina di prenotazione*/
                     }
                     LBLnewUser.Text = "Indirizzo mail o Password sconosciuti, verificare e riprovare, oppure registrarsi";
                    

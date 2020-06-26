@@ -56,5 +56,13 @@ namespace prenotazione
 			Session.Contents.RemoveAll();
 
 		}
+
+		protected void BTMprenota_Click(object sender, EventArgs e)
+		{if (Session["islogged"] == null)
+			{
+				Response.Redirect("accesso.aspx", true);
+			}else Response.Redirect("prenotazioni.aspx", true);
+		}
 	}
+	
 }
