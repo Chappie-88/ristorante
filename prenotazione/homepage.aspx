@@ -5,11 +5,10 @@
     <div class="container py-5">
     <div class="row">
         <div class="col-lg-10 mx-auto col-12 text-center mb-3">
-            <h1 class="mt-0 text-primary">Il nostro Menu</h1>
-            <p class="lead">Testo</p>
+            <h1 class="mt-0 text-light">Il nostro Menu</h1>
         </div>
         <div class="col-12 mt-4">
-            <h3 class="text-center">Antipasti</h3>
+            <h3 class="text-center text-light">Antipasti</h3>
             <hr class="accent my-5 bg-light">
         </div>
         <div class="card-columns">
@@ -45,7 +44,7 @@
             </div>
         </div>
         <div class="col-12 mt-4">
-            <h3 class="text-center">Piatti</h3>
+            <h3 class="text-center text-light">Piatti</h3>
             <hr class="accent my-5 bg-light">
         </div>
         <div class="card-columns">
@@ -80,42 +79,7 @@
                 <p class="small">Polpette di maiale speziate.</p>
             </div>
         </div>
-        <div class="col-12 mt-4">
-            <h3 class="text-center">Secondi</h3>
-            <hr class="accent my-5 bg-light">
-        </div>
-        <div class="card-columns">
-            <div class="card card-body">
-                <span class="float-right font-weight-bold">prezzo</span>
-                <h6 class="text-truncate">Nome piatto</h6>
-                <p class="small">Descrizione o foto.</p>
-            </div>
-            <div class="card card-body">
-                <span class="float-right font-weight-bold">prezzo</span>
-                <h6 class="text-truncate">Nome piatto</h6>
-                <p class="small">Descrizione o foto.</p> 
-            </div>
-            <div class="card card-body">
-                <span class="float-right font-weight-bold">prezzo</span>
-                <h6 class="text-truncate">Nome piatto</h6>
-                <p class="small">Descrizione o foto.</p>
-            </div>
-            <div class="card card-body">
-                <span class="float-right font-weight-bold">prezzo</span>
-                <h6 class="text-truncate">Nome piatto</h6>
-                <p class="small">Descrizione o foto.</p>
-            </div>
-            <div class="card card-body">
-                <span class="float-right font-weight-bold">prezzo</span>
-                <h6 class="text-truncate">Nome piatto</h6>
-                <p class="small">Descrizione o foto.</p>
-            </div>
-            <div class="card card-body">
-                <span class="float-right font-weight-bold">prezzo</span>
-                <h6 class="text-truncate">Nome piatto</h6>
-                <p class="small">Descrizione o foto.</p>
-            </div>
-        </div>
+        
         <div class="col-12 mt-4">
             <hr class="accent my-5 bg-light">
         </div>
