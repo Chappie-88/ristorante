@@ -9,12 +9,13 @@ namespace prenotazione
 {
     public partial class prenotazioni : System.Web.UI.Page
     {
-
+        Guid ID;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (Session["islogged"] == null) { Response.Redirect("homepage.aspx", true); }
             Session["IDuser"] = "2C427B01-8ED7-4BAB-ABDD-058C4FF20975";
-            GenerateBookingTable();
+            ID = Guid.Parse(Session["IDuser"].ToString());
+            GenerateBookingTable(ID);
         }
         protected void BTMPrenota_Click(object sender, EventArgs e)
         {
@@ -42,13 +43,13 @@ namespace prenotazione
                     //b.dataPrenotazione = DateTime.Today;
                     b.prenotati = int.Parse(TXTnPrenotati.Text);
                     DAL.insertBooking(b);
-                    GenerateBookingTable();
+                    GenerateBookingTable(ID);
 
                 }
             }
         }
 
-        private void GenerateBookingTable()
+        private void GenerateBookingTable(Guid ID)
         {
             TBLBooking.Rows.Clear();
             TableRow headerRow = new TableRow();
@@ -62,7 +63,7 @@ namespace prenotazione
             TBLBooking.Rows.Add(headerRow);
             TBLBooking.Attributes.Add("class", "table");
 
-            List<Booking> booking = DAL.getAllBooking();
+            List<Booking> booking = DAL.getAllBooking(ID);
             foreach (Booking b in booking)
             {
                 TableRow row = new TableRow();
