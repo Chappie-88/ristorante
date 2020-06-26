@@ -64,7 +64,8 @@
                                 
 
                                 <div class="form-group">
-                                    <a href="#"><input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Prenota" /></a>
+                                     <asp:Button class="btn btn-info btn-block btn-lg" ID="BTMprenota" runat="server" Text="Prenota" OnClick="BTMPrenota_Click" />
+                                    
                                 </div>
                             </div>
                         </div>                            
