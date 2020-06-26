@@ -31,13 +31,12 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Seleziona un giorno</label>
-                                    <asp:TextBox CssClass="form-control" id="TXTdate" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy" runat="server" 
-                                        ></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control it-date-datepicker" id="TXTdate" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy" runat="server"></asp:TextBox>
                                  
 							
                                     <script>
                                         $(document).ready(function () {
-                                            $('#date').datepicker({
+                                            $('.it-date-datepicker').datepicker({
                                                 theme: 'bootstrap',
                                                 outputFormat: 'dd.MM.yyyy',
                                             });
