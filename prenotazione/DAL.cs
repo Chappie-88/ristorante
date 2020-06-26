@@ -123,7 +123,8 @@ namespace prenotazione
                 {
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@id", b.ID);
-                    command.Parameters.AddWithValue("@DataPrenotazone", b.dataPrenotazione);
+                    command.Parameters.AddWithValue("@DataPrenotazione", b.dataPrenotazione);
+                                      
                     command.Parameters.AddWithValue("@prenotati", b.prenotati);
                     connection.Open();
                     command.ExecuteNonQuery();

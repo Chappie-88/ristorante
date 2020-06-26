@@ -50,7 +50,7 @@
                        
                                 <div class="form-group">
                                     <label>Inserisci il numero di persone</label>
-                                    <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" 
+                                    <asp:TextBox CssClass="form-control" ID="TXTnPrenotati" runat="server" 
                                         placeholder="Numero di persone"></asp:TextBox>
                                 </div>
                                 

@@ -24,13 +24,13 @@ namespace prenotazione
 		protected global::System.Web.UI.WebControls.TextBox date;
 
 		/// <summary>
-		/// Controllo TextBox1.
+		/// Controllo TXTnPrenotati.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox1;
+		protected global::System.Web.UI.WebControls.TextBox TXTnPrenotati;
 
 		/// <summary>
 		/// Controllo BTMprenota.
