@@ -1724,6 +1724,7 @@
     <Compile Include="accesso.aspx.designer.cs">
       <DependentUpon>accesso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Booking.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="prenotazioni.aspx.cs">
