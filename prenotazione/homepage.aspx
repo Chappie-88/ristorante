@@ -2,14 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        
     <div class="container py-5">
     <div class="row">
         <div class="col-lg-10 mx-auto col-12 text-center mb-3">
             <h1 class="mt-0 text-light" id="nostroMenu">Il nostro Menu</h1>
         </div>
         <div class="col-12 mt-4">
-            <h3 class="text-center text-light">Antipasti</h3>
-            <hr class="accent my-5 bg-light">
+            <%--<h3 class="text-center text-light">Antipasti</h3>
+            <hr class="accent my-5 bg-light">--%>
+            <center><img src="img/antipasti.png" class="img-fluid"/></center>
+            <br />
         </div>
         <div class="card-columns">
             <div class="card card-body">
@@ -44,8 +47,10 @@
             </div>
         </div>
         <div class="col-12 mt-4">
-            <h3 class="text-center text-light">Piatti</h3>
-            <hr class="accent my-5 bg-light">
+            <center><img src="img/piatti.png" class="img-fluid"/></center>
+            <br />
+            <%--<h3 class="text-center text-light">Piatti</h3>
+            <hr class="accent my-5 bg-light">--%>
         </div>
         <div class="card-columns">
             <div class="card card-body">

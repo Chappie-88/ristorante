@@ -1711,7 +1711,8 @@
     <Content Include="fontawesome\webfonts\fa-brands-400.svg" />
     <Content Include="fontawesome\webfonts\fa-regular-400.svg" />
     <Content Include="fontawesome\webfonts\fa-solid-900.svg" />
-    <Content Include="img\greece-culture-food-wine.jpg" />
+    <Content Include="img\antipasti.png" />
+    <Content Include="img\piatti.png" />
     <Content Include="img\symposion.png" />
     <Content Include="prenotazioni.aspx" />
     <Content Include="registrazione.aspx" />
