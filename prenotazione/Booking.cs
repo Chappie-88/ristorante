@@ -7,6 +7,7 @@ namespace prenotazione
 {
 	public class Booking
 	{
+		public Guid id_prenotazione { get; set; }
 		public Guid ID { get; set; }
 		public DateTime dataPrenotazione { get; set; }
 		public int prenotati { get; set; }

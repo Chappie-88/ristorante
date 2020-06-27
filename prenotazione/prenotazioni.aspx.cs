@@ -37,7 +37,8 @@ namespace prenotazione
 
                     }
 
-                    Booking b = new Booking();                                  /*testare funzionamento con login*/
+                    Booking b = new Booking();  b.id_prenotazione = Guid.NewGuid();
+                    /*testare funzionamento con login*/
                     b.ID = Guid.Parse(Session["IDuser"].ToString());
                     b.dataPrenotazione = DateTime.Parse(TXTdate.Text);
                     //b.dataPrenotazione = DateTime.Today;
@@ -48,8 +49,8 @@ namespace prenotazione
                 }
             }
         }
-        private void GenerateBookingTable(Guid ID)
-        {
+        private void GenerateBookingTable(Guid ID){
+      
             TBLBooking.Rows.Clear();
             TableRow headerRow = new TableRow();
             TableCell dataHeaderCell = new TableCell();
@@ -83,7 +84,7 @@ namespace prenotazione
                 //editButtonCell.Controls.Add(editButton);
 
                 Button deleteButton = new Button();
-                deleteButton.ID = b.ID.ToString() + "delete";
+                deleteButton.ID = b.id_prenotazione.ToString() + "delete";
                 deleteButton.Text = "Delete";
                 deleteButton.Click += this.Delete_Click;
                 deleteButton.Attributes.Add("class", "btn btn-danger btn-sm");
@@ -102,8 +103,8 @@ namespace prenotazione
         { /* serve ID di prenotazione come chiave univoca*/
             Button bt = new Button();
             Guid idconvers = Guid.Parse(((Button)sender).ID.Replace("delete", ""));
-            //DAL.Delete(idconvers);
-           // Response.Redirect(".aspx", true);
+            DAL.Delete(idconvers);
+            Response.Redirect("prenotazioni.aspx", true);
         }
     }
 }

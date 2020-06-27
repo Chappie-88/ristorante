@@ -116,7 +116,7 @@ namespace prenotazione
         public static void insertBooking(Booking b)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "insert into [dbo].[Prenotazioni] values (@IDUtente, @DataPrenotazione, @prenotati)";
+            string query = "insert into [dbo].[Prenotazioni] values (newid(),@IDUtente, @DataPrenotazione, @prenotati)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -140,11 +140,12 @@ namespace prenotazione
             }
         } /*inserisce una nuova prenotazione*/
 
+        
         public static List<Booking> getAllBooking(Guid ID)
         {
             List<Booking> booking = new List<Booking>();
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [DataPrenotazione],[prenotati] FROM [dbo].[prenotazioni] WHERE [IDUtente]=@id order by DataPrenotazione";
+            string query = "SELECT [DataPrenotazione],[prenotati],[ID_prenotazione] FROM [dbo].[prenotazioni] WHERE [IDUtente]=@id order by DataPrenotazione";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -162,6 +163,7 @@ namespace prenotazione
                         Booking b = new Booking();
                         b.dataPrenotazione = DateTime.Parse(row["DataPrenotazione"].ToString());
                         b.prenotati = int.Parse(row["prenotati"].ToString());
+                    b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
                        booking.Add(b);
                     }
                 }
@@ -175,6 +177,24 @@ namespace prenotazione
                 }
             }
             return booking;
+        }
+
+        public static void Delete(Guid ID)
+        {
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "Delete [dbo].[prenotazioni] WHERE [ID_prenotazione]=@id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+
+                try
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", ID.ToString());
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex) { }
+                finally { connection.Close(); }
         }
     }
 }
