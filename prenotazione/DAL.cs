@@ -138,6 +138,43 @@ namespace prenotazione
                     connection.Close();
                 }
             }
+        } /*inserisce una nuova prenotazione*/
+
+        public static List<Booking> getAllBooking(Guid ID)
+        {
+            List<Booking> booking = new List<Booking>();
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "SELECT [DataPrenotazione],[prenotati] FROM [dbo].[prenotazioni] WHERE [ID]=@id order by DataPrenotazione";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", ID);
+                    connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Booking b = new Booking();
+                        b.dataPrenotazione = DateTime.Parse(row["DataPrenotazione"].ToString());
+                        b.prenotati = int.Parse(row["prenotati"].ToString());
+                       booking.Add(b);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return booking;
         }
     }
 }

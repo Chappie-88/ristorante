@@ -62,11 +62,12 @@
                             </div>
                         </div>                            
                         <div>
-
+                                  
                         </div>
+                       
                     </div>
                 </div>
-            </div>
+            </div> <asp:Table ID="TBLBooking" runat="server"></asp:Table>
         </div>
     </div>
     
