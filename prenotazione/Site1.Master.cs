@@ -59,10 +59,10 @@ namespace prenotazione
 
 		protected void BTMprenota_Click(object sender, EventArgs e)
 		{
-		//if (Session["islogged"] == null)
-		//	{
-		//		Response.Redirect("accesso.aspx", true);
-		//	}else
+		if (Session["islogged"] == null)
+			{
+				Response.Redirect("accesso.aspx", true);
+			}else
 		Response.Redirect("prenotazioni.aspx", true);
 		}
 	}
