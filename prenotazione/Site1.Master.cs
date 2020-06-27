@@ -39,7 +39,7 @@ namespace prenotazione
 				LBLuser.Text = "Benvenuto " + DAL.userlogged;
 			}
 
-			LBLposti.Text = " Per oggi ci sono ancora:  " + (capienza- DAL.freeSeat(DateTime.Today.ToString())) + " posti disponibili";
+			LBLposti.Text = " Per oggi ci sono ancora:  " + (capienza- DAL.freeSeat(DateTime.Today) + " posti disponibili");
 
 
 		}

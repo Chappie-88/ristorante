@@ -197,11 +197,11 @@ namespace prenotazione
                 finally { connection.Close(); }
         }
 
-        public static int freeSeat(string date)
+        public static int freeSeat(DateTime date)
         {
             int prenotati = 0;
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT sum(prenotati) FROM [dbo].[prenotazioni] WHERE [DataPrenotazione]=@data";
+            string query = "SELECT prenotati FROM [dbo].[prenotazioni] WHERE [DataPrenotazione]=@data";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -211,19 +211,19 @@ namespace prenotazione
                     command.Parameters.AddWithValue("@data", date);
                     connection.Open();
 
-                    prenotati = Convert.ToInt32(dt);
-                    //using (SqlDataAdapter da = new SqlDataAdapter(command))
-                    //{
-                    //    da.Fill(dt);
-                    //}
-                    //foreach (DataRow row in dt.Rows)
-                    //{
-                    //    Booking b = new Booking();
-                    //    prenotati = (row["prenotati"].ToString());
-                    //    b.prenotati = int.Parse(row["prenotati"].ToString());
-                    //    b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
-                    //    booking.Add(b);
-                    //}
+                    //prenotati = Convert.ToInt32(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //Booking b = new Booking();
+                        prenotati = prenotati + Convert.ToInt32( (row["prenotati"].ToString()));
+                        //b.prenotati = int.Parse(row["prenotati"].ToString());
+                        //b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
+                        //booking.Add(b);
+                    }
                 }
                 catch (Exception ex)
                 {
