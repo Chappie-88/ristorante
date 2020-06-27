@@ -13,7 +13,6 @@ namespace prenotazione
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["islogged"] == null) { Response.Redirect("homepage.aspx", true); }
-            Session["IDuser"] = "2C427B01-8ED7-4BAB-ABDD-058C4FF20975";
             ID = Guid.Parse(Session["IDuser"].ToString());
             GenerateBookingTable(ID);
         }
