@@ -39,6 +39,7 @@
                           <li class="nav-item">
                             <%--<a class="nav-link" href="#">About</a>--%>
                               <asp:Label ID="LBLuser" runat="server" Text=""></asp:Label>
+                              <asp:Label ID="LBLposti" runat="server" Text=""></asp:Label>
                           </li>
                         </ul>
                         <ul class="navbar-nav  ml-auto">

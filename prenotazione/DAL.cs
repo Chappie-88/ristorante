@@ -8,8 +8,8 @@ using System.Web.Configuration;
 
 namespace prenotazione
 {
-	public class DAL
-	{
+    public class DAL
+    {
         public static string ID = null;
         public static string userlogged = null;
         public static void insertUser(Person p)
@@ -96,7 +96,7 @@ namespace prenotazione
                         {
                             ID = row["ID"].ToString();
                             userlogged = row["name"].ToString() + " " + row["surname"].ToString();
-                             }
+                        }
                     }
 
 
@@ -116,15 +116,15 @@ namespace prenotazione
         public static void insertBooking(Booking b)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "insert into [dbo].[Prenotazioni] values (@id, @DataPrenotazione, @prenotati)";
+            string query = "insert into [dbo].[Prenotazioni] values (newid(),@IDUtente, @DataPrenotazione, @prenotati)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@id", b.ID);
+                    command.Parameters.AddWithValue("@IDUtente", b.ID);
                     command.Parameters.AddWithValue("@DataPrenotazione", b.dataPrenotazione);
-                                      
+
                     command.Parameters.AddWithValue("@prenotati", b.prenotati);
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -140,11 +140,12 @@ namespace prenotazione
             }
         } /*inserisce una nuova prenotazione*/
 
+
         public static List<Booking> getAllBooking(Guid ID)
         {
             List<Booking> booking = new List<Booking>();
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [DataPrenotazione],[prenotati] FROM [dbo].[prenotazioni] WHERE [ID]=@id order by DataPrenotazione";
+            string query = "SELECT [DataPrenotazione],[prenotati],[ID_prenotazione] FROM [dbo].[prenotazioni] WHERE [IDUtente]=@id order by DataPrenotazione";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -162,7 +163,8 @@ namespace prenotazione
                         Booking b = new Booking();
                         b.dataPrenotazione = DateTime.Parse(row["DataPrenotazione"].ToString());
                         b.prenotati = int.Parse(row["prenotati"].ToString());
-                       booking.Add(b);
+                        b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
+                        booking.Add(b);
                     }
                 }
                 catch (Exception ex)
@@ -175,6 +177,65 @@ namespace prenotazione
                 }
             }
             return booking;
+        }
+
+        public static void Delete(Guid ID)
+        {
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "Delete [dbo].[prenotazioni] WHERE [ID_prenotazione]=@id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+
+                try
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", ID.ToString());
+                    connection.Open();
+                    command.ExecuteNonQuery();
+
+                }
+                catch (Exception ex) { }
+                finally { connection.Close(); }
+        }
+
+        public static int freeSeat(DateTime date)
+        {
+            int prenotati = 0;
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "SELECT prenotati FROM [dbo].[prenotazioni] WHERE [DataPrenotazione]=@data";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@data", date);
+                    connection.Open();
+
+                    //prenotati = Convert.ToInt32(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    {
+                        da.Fill(dt);
+                    }
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //Booking b = new Booking();
+                        prenotati = prenotati + Convert.ToInt32( (row["prenotati"].ToString()));
+                        //b.prenotati = int.Parse(row["prenotati"].ToString());
+                        //b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
+                        //booking.Add(b);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+
+                }
+                return prenotati;
+            }
         }
     }
 }

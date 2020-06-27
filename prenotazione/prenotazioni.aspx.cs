@@ -12,8 +12,7 @@ namespace prenotazione
         Guid ID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["islogged"] == null) { Response.Redirect("homepage.aspx", true); }
-            Session["IDuser"] = "2C427B01-8ED7-4BAB-ABDD-058C4FF20975";
+            if (Session["islogged"] == null) { Response.Redirect("homepage.aspx", true); }
             ID = Guid.Parse(Session["IDuser"].ToString());
             GenerateBookingTable(ID);
         }
@@ -37,19 +36,20 @@ namespace prenotazione
 
                     }
 
-                    Booking b = new Booking();                                  /*testare funzionamento con login*/
+                    Booking b = new Booking();  b.id_prenotazione = Guid.NewGuid();
+                    /*testare funzionamento con login*/
                     b.ID = Guid.Parse(Session["IDuser"].ToString());
                     b.dataPrenotazione = DateTime.Parse(TXTdate.Text);
                     //b.dataPrenotazione = DateTime.Today;
                     b.prenotati = int.Parse(TXTnPrenotati.Text);
                     DAL.insertBooking(b);
-                    GenerateBookingTable(ID);
+                   GenerateBookingTable(ID);
 
                 }
             }
         }
-        private void GenerateBookingTable(Guid ID)
-        {
+        private void GenerateBookingTable(Guid ID){
+      
             TBLBooking.Rows.Clear();
             TableRow headerRow = new TableRow();
             TableCell dataHeaderCell = new TableCell();
@@ -83,9 +83,9 @@ namespace prenotazione
                 //editButtonCell.Controls.Add(editButton);
 
                 Button deleteButton = new Button();
-                deleteButton.ID = b.ID.ToString() + "delete";
+                deleteButton.ID = b.id_prenotazione.ToString() + "delete";
                 deleteButton.Text = "Delete";
-                //deleteButton.Click += this.Delete_Click;
+                deleteButton.Click += this.Delete_Click;
                 deleteButton.Attributes.Add("class", "btn btn-danger btn-sm");
                 deleteButtonCell.Controls.Add(deleteButton);
 
@@ -96,6 +96,14 @@ namespace prenotazione
                 TBLBooking.Rows.Add(row);
             }
             TBLBooking.DataBind();
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        { /* serve ID di prenotazione come chiave univoca*/
+            Button bt = new Button();
+            Guid idconvers = Guid.Parse(((Button)sender).ID.Replace("delete", ""));
+            DAL.Delete(idconvers);
+            Response.Redirect("prenotazioni.aspx", true);
         }
     }
 }
