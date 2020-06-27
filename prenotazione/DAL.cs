@@ -116,13 +116,13 @@ namespace prenotazione
         public static void insertBooking(Booking b)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "insert into [dbo].[Prenotazioni] values (@id, @DataPrenotazione, @prenotati)";
+            string query = "insert into [dbo].[Prenotazioni] values (@IDUtente, @DataPrenotazione, @prenotati)";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@id", b.ID);
+                    command.Parameters.AddWithValue("@IDUtente", b.ID);
                     command.Parameters.AddWithValue("@DataPrenotazione", b.dataPrenotazione);
                                       
                     command.Parameters.AddWithValue("@prenotati", b.prenotati);
@@ -144,7 +144,7 @@ namespace prenotazione
         {
             List<Booking> booking = new List<Booking>();
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [DataPrenotazione],[prenotati] FROM [dbo].[prenotazioni] WHERE [ID]=@id order by DataPrenotazione";
+            string query = "SELECT [DataPrenotazione],[prenotati] FROM [dbo].[prenotazioni] WHERE [IDUtente]=@id order by DataPrenotazione";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try

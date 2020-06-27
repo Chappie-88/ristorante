@@ -43,7 +43,7 @@ namespace prenotazione
                     //b.dataPrenotazione = DateTime.Today;
                     b.prenotati = int.Parse(TXTnPrenotati.Text);
                     DAL.insertBooking(b);
-                    GenerateBookingTable(ID);
+                   GenerateBookingTable(ID);
 
                 }
             }
@@ -85,7 +85,7 @@ namespace prenotazione
                 Button deleteButton = new Button();
                 deleteButton.ID = b.ID.ToString() + "delete";
                 deleteButton.Text = "Delete";
-                //deleteButton.Click += this.Delete_Click;
+                deleteButton.Click += this.Delete_Click;
                 deleteButton.Attributes.Add("class", "btn btn-danger btn-sm");
                 deleteButtonCell.Controls.Add(deleteButton);
 
@@ -96,6 +96,14 @@ namespace prenotazione
                 TBLBooking.Rows.Add(row);
             }
             TBLBooking.DataBind();
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        { /* serve ID di prenotazione come chiave univoca*/
+            Button bt = new Button();
+            Guid idconvers = Guid.Parse(((Button)sender).ID.Replace("delete", ""));
+            //DAL.Delete(idconvers);
+           // Response.Redirect(".aspx", true);
         }
     }
 }
