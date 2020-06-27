@@ -9,9 +9,10 @@ namespace prenotazione
 {
 	public partial class Site1 : System.Web.UI.MasterPage
 	{
+		int capienza = 50;
 		protected void Page_Load(object sender, EventArgs e)
 		{/*risposta al commento di prova, ora pusho*/
-			BTMesc.Visible =true;
+			BTMesc.Visible = true;
 			if (Session["islogged"] == null)
 			{
 				BTMesc.Visible = false;
@@ -23,6 +24,11 @@ namespace prenotazione
 					case "registrazione":
 						BTMLog.Visible = false;
 						break;
+					case "prenotazione":
+						BTMLog.Visible = false;
+						BTMlogin.Visible = false;
+						BTMprenota.Visible = false;
+						break;
 				}
 			}
 			else
@@ -32,9 +38,9 @@ namespace prenotazione
 				Session["islogged"] = DAL.userlogged;
 				LBLuser.Text = "Benvenuto " + DAL.userlogged;
 			}
-			
 
-			
+			LBLposti.Text = " Per oggi ci sono ancora:  " + (capienza- DAL.freeSeat(DateTime.Today.ToString())) + " posti disponibili";
+
 
 		}
 
@@ -54,17 +60,19 @@ namespace prenotazione
 			DAL.userlogged = null;
 			DAL.ID = null;
 			Session.Contents.RemoveAll();
+			Response.Redirect("homepage.aspx", true);
 
 		}
 
 		protected void BTMprenota_Click(object sender, EventArgs e)
 		{
-		if (Session["islogged"] == null)
+			if (Session["islogged"] == null)
 			{
 				Response.Redirect("accesso.aspx", true);
-			}else
-		Response.Redirect("prenotazioni.aspx", true);
+			}
+			else
+				Response.Redirect("prenotazioni.aspx", true);
 		}
 	}
-	
+
 }

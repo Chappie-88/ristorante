@@ -8,8 +8,8 @@ using System.Web.Configuration;
 
 namespace prenotazione
 {
-	public class DAL
-	{
+    public class DAL
+    {
         public static string ID = null;
         public static string userlogged = null;
         public static void insertUser(Person p)
@@ -96,7 +96,7 @@ namespace prenotazione
                         {
                             ID = row["ID"].ToString();
                             userlogged = row["name"].ToString() + " " + row["surname"].ToString();
-                             }
+                        }
                     }
 
 
@@ -124,7 +124,7 @@ namespace prenotazione
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@IDUtente", b.ID);
                     command.Parameters.AddWithValue("@DataPrenotazione", b.dataPrenotazione);
-                                      
+
                     command.Parameters.AddWithValue("@prenotati", b.prenotati);
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -140,7 +140,7 @@ namespace prenotazione
             }
         } /*inserisce una nuova prenotazione*/
 
-        
+
         public static List<Booking> getAllBooking(Guid ID)
         {
             List<Booking> booking = new List<Booking>();
@@ -163,8 +163,8 @@ namespace prenotazione
                         Booking b = new Booking();
                         b.dataPrenotazione = DateTime.Parse(row["DataPrenotazione"].ToString());
                         b.prenotati = int.Parse(row["prenotati"].ToString());
-                    b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
-                       booking.Add(b);
+                        b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
+                        booking.Add(b);
                     }
                 }
                 catch (Exception ex)
@@ -195,6 +195,47 @@ namespace prenotazione
                 }
                 catch (Exception ex) { }
                 finally { connection.Close(); }
+        }
+
+        public static int freeSeat(string date)
+        {
+            int prenotati = 0;
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "SELECT sum(prenotati) FROM [dbo].[prenotazioni] WHERE [DataPrenotazione]=@data";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@data", date);
+                    connection.Open();
+
+                    prenotati = Convert.ToInt32(dt);
+                    //using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    //{
+                    //    da.Fill(dt);
+                    //}
+                    //foreach (DataRow row in dt.Rows)
+                    //{
+                    //    Booking b = new Booking();
+                    //    prenotati = (row["prenotati"].ToString());
+                    //    b.prenotati = int.Parse(row["prenotati"].ToString());
+                    //    b.id_prenotazione = Guid.Parse(row["ID_prenotazione"].ToString());
+                    //    booking.Add(b);
+                    //}
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+
+                }
+                return prenotati;
+            }
         }
     }
 }
