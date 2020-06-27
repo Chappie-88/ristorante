@@ -9,9 +9,11 @@ namespace prenotazione
 {
 	public partial class Site1 : System.Web.UI.MasterPage
 	{
-		int capienza = 50;
+		int capienza;
 		protected void Page_Load(object sender, EventArgs e)
 		{/*risposta al commento di prova, ora pusho*/
+			Session["capienza"] = 50;
+			capienza = Convert.ToInt32(Session["capienza"]);
 			BTMesc.Visible = true;
 			if (Session["islogged"] == null)
 			{

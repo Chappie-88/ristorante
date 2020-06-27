@@ -145,14 +145,16 @@ namespace prenotazione
         {
             List<Booking> booking = new List<Booking>();
             string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
-            string query = "SELECT [DataPrenotazione],[prenotati],[ID_prenotazione] FROM [dbo].[prenotazioni] WHERE [IDUtente]=@id order by DataPrenotazione";
+            string query = "SELECT [DataPrenotazione],[prenotati],[ID_prenotazione] FROM [dbo].[prenotazioni] WHERE [IDUtente]=@id and [DataPrenotazione]>=@today order by DataPrenotazione";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
+                    
                     DataTable dt = new DataTable();
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@id", ID);
+                    command.Parameters.AddWithValue("@today", DateTime.Today);
                     connection.Open();
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
                     {
@@ -236,6 +238,39 @@ namespace prenotazione
                 }
                 return prenotati;
             }
+        }
+        public static bool dateTest(DateTime date, Guid ID) 
+        {
+            bool validdate = true;
+            string connectionString = WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString;
+            string query = "SELECT [DataPrenotazione] FROM [dbo].[prenotazioni] WHERE [DataPrenotazione]=@data AND [IDUtente]=@id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    DataTable dt = new DataTable();
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@mail", date.ToString());
+                    command.Parameters.AddWithValue("@id", ID.ToString());
+                    connection.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(command))
+                    { da.Fill(dt); }
+                    if (dt.Rows.Count == 1)
+
+                        validdate = false;
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return validdate;
+        
         }
     }
 }

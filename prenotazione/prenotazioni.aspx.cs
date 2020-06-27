@@ -9,11 +9,14 @@ namespace prenotazione
 {
     public partial class prenotazioni : System.Web.UI.Page
     {
-        Guid ID;
+        int capienza;
+           Guid ID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            capienza = Convert.ToInt32(Session["capienza"]);
             if (Session["islogged"] == null) { Response.Redirect("homepage.aspx", true); }
             ID = Guid.Parse(Session["IDuser"].ToString());
+
             GenerateBookingTable(ID);
         }
         protected void BTMPrenota_Click(object sender, EventArgs e)
@@ -35,15 +38,27 @@ namespace prenotazione
                         LBLprenotazione.Text = "Inserire almeno 1 prenotato";
 
                     }
-
-                    Booking b = new Booking();  b.id_prenotazione = Guid.NewGuid();
-                    /*testare funzionamento con login*/
-                    b.ID = Guid.Parse(Session["IDuser"].ToString());
-                    b.dataPrenotazione = DateTime.Parse(TXTdate.Text);
-                    //b.dataPrenotazione = DateTime.Today;
-                    b.prenotati = int.Parse(TXTnPrenotati.Text);
-                    DAL.insertBooking(b);
-                   GenerateBookingTable(ID);
+                    if (DAL.dateTest(DateTime.Parse(TXTdate.Text), ID))
+                    {
+                        if ((capienza - DAL.freeSeat(DateTime.Parse(TXTdate.Text)) - int.Parse(TXTnPrenotati.Text)) < 0)
+                        {
+                            Booking b = new Booking(); b.id_prenotazione = Guid.NewGuid();
+                            /*testare funzionamento con login*/
+                            b.ID = Guid.Parse(Session["IDuser"].ToString());
+                            b.dataPrenotazione = DateTime.Parse(TXTdate.Text);
+                            //b.dataPrenotazione = DateTime.Today;
+                            b.prenotati = int.Parse(TXTnPrenotati.Text);
+                            DAL.insertBooking(b);
+                            GenerateBookingTable(ID);
+                        }
+                        else 
+                        {
+                            LBLprenotazione.Text = "Per il giorno " + TXTdate.Text + " non ci sono " + TXTnPrenotati.Text+ " posti disponibili";
+                        }
+                    }
+                    else {
+                        LBLprenotazione.Text = "Hai gia una prenotazione per questa data";
+                    }
 
                 }
             }
