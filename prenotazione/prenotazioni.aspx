@@ -3,7 +3,10 @@
  <!-- Bootstrap DatePicker -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
+<link href="datepicker/css/datepicker.css" rel="stylesheet" />
 
+<script type="text/javascript" src="js/datepicker.min.js"></script>
+<script type="text/javascript" src="js/locales/it.min.js"></script>
 <!-- Bootstrap DatePicker -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -35,19 +38,17 @@
                                     <asp:TextBox CssClass="form-control it-date-datepicker" id="TXTdate" type="text" placeholder="dd/MM/yy" title="format : dd/MM/yy" runat="server"></asp:TextBox>
                                  
 							
-                                    <script>
+                                    <script type="text/javascript">
                                         $(document).ready(function () {
                                             $('.it-date-datepicker').datepicker({
                                                 theme: 'bootstrap',
-                                                outputFormat: 'dd.MM.yyyy',
+                                                format: 'dd/MM/yy',
                                             });
                                         });
+                                        
                                     </script>
-                                    
-                                   
                                 </div>
-                          
-                       
+                               
                                 <div class="form-group">
                                     <label>Inserisci il numero di persone</label>
                                     <asp:TextBox CssClass="form-control" ID="TXTnPrenotati" runat="server" 
