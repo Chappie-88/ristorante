@@ -40,7 +40,7 @@ namespace prenotazione
                     }
                     if (DAL.dateTest(DateTime.Parse(TXTdate.Text), ID))
                     {
-                        if ((capienza - DAL.freeSeat(DateTime.Parse(TXTdate.Text)) - int.Parse(TXTnPrenotati.Text)) < 0)
+                        if ((capienza - DAL.freeSeat(DateTime.Parse(TXTdate.Text)) - int.Parse(TXTnPrenotati.Text)) >= 0)
                         {
                             Booking b = new Booking(); b.id_prenotazione = Guid.NewGuid();
                             /*testare funzionamento con login*/
