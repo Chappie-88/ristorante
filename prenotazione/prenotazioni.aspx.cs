@@ -25,6 +25,8 @@ namespace prenotazione
             {
                 LBLprenotazione.Text = "Inserire una data valida";
             }
+            if (Convert.ToDateTime(TXTdate.Text) < DateTime.Today)
+                { LBLprenotazione.Text = "ATTENZIONE - Impossibile prenotare per una data gia passata"; }
             else
             {
                 if (TXTnPrenotati.Text == "")
@@ -51,9 +53,9 @@ namespace prenotazione
                             DAL.insertBooking(b);
                             GenerateBookingTable(ID);
                         }
-                        else 
+                        else
                         {
-                            LBLprenotazione.Text = "Per il giorno " + TXTdate.Text + " non ci sono " + TXTnPrenotati.Text+ " posti disponibili";
+                            LBLprenotazione.Text = "Per il giorno " + TXTdate.Text + " non ci sono " + TXTnPrenotati.Text + " posti disponibili";
                         }
                     }
                     else {
