@@ -15,6 +15,7 @@
             <center><img src="img/antipasti.png" class="img-fluid"/></center>
             <br />
         </div>
+
         <div class="card-columns">
             <div class="card card-body">
                 <span class="float-right font-weight-bold">6 €</span>
