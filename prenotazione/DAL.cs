@@ -250,7 +250,7 @@ namespace prenotazione
                 {
                     DataTable dt = new DataTable();
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@mail", date.ToString());
+                    command.Parameters.AddWithValue("@data", date);
                     command.Parameters.AddWithValue("@id", ID.ToString());
                     connection.Open();
                     using (SqlDataAdapter da = new SqlDataAdapter(command))
