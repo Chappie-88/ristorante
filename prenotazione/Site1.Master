@@ -16,43 +16,49 @@
     <script src="bootstrap/js/jquery-3.5.1.slim.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+     
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-color:#00a8ff">
     <form id="form1" runat="server">
       
         <div>
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#">
-                <%--icona--%>
-                Nome Ristorante
+                <a class="navbar-brand" href="homepage.aspx">
+                <img src="img/symposion.png" alt="ristorante greco symposion" width="150" height="55" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               
+                <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                           
-                          <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                          <li class="nav-item text-left">
+                            <%--<a class="nav-link" href="#">About</a>--%>
+                               <asp:Label ID="LBLuser" runat="server" Text=""></asp:Label>
+                <asp:Label ID="LBLposti" class="text-left" runat="server" Text=""></asp:Label>
                           </li>
                         </ul>
-                        <ul class="navbar-nav">
-                          <li class="nav-item active">
-                            <a class="nav-link" href="#">Prenotazioni</a>
+                        <ul class="navbar-nav  ml-auto">
+                          <li class="nav-item">
+                              <asp:Button ID="BTMprenota" class="btm" runat="server" Text="Prenota" OnClick="BTMprenota_Click" />
+                            <%--<a class="nav-link" href="prenotazioni.aspx">Prenotazioni</a>--%>
                           </li>  
-                          <li class="nav-item active">
-                            <a class="nav-link" href="#">Accedi</a>
+                          <li class="nav-item">
+                            <asp:Button ID="BTMlogin" class="btm" runat="server" Text="Accedi" OnClick="BTMlogin_Click" />
+                              <%--<a class="nav-link" href="#">Accedi</a>--%>
                           </li>
                           <li class="nav-item">
-                              <asp:Button ID="BTMLog" runat="server" Text="Registrati" OnClick="BTMLog_Click" />
-                            <a class="nav-link" href="registrazione.aspx">Registrati</a>
+                              <asp:Button ID="BTMLog" class="btm" runat="server" Text="Registrati" OnClick="BTMnewLog_Click" />
+                            <%--<a class="nav-link" href="registrazione.aspx">Registrati</a>--%>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">Esci</a>
+                              <asp:Button ID="BTMesc" runat="server" Text="ESCI" OnClick="BTMesc_Click" />
+                            <%--<a class="nav-link" href="#">Esci</a>--%>
                           </li>  
 
                         </ul>
@@ -70,7 +76,7 @@
             <div id="footer1" class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <p style="color:whitesmoke">&copy All right Reversed.</p>
+                        <p style="color:whitesmoke">&copy All rights Reserved.</p>
                     </div>
                 </div>
             </div>

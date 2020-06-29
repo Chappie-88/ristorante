@@ -24,30 +24,30 @@ namespace prenotazione
 		protected global::System.Web.UI.WebControls.Label LBLnewUser;
 
 		/// <summary>
-		/// Controllo TextBox1.
+		/// Controllo TXTmail.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox1;
+		protected global::System.Web.UI.WebControls.TextBox TXTmail;
 
 		/// <summary>
-		/// Controllo TextBox2.
+		/// Controllo TXTpass.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox2;
+		protected global::System.Web.UI.WebControls.TextBox TXTpass;
 
 		/// <summary>
-		/// Controllo Button1.
+		/// Controllo BTMaccedi.
 		/// </summary>
 		/// <remarks>
 		/// Campo generato automaticamente.
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
+		protected global::System.Web.UI.WebControls.Button BTMaccedi;
 	}
 }

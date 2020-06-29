@@ -33,6 +33,42 @@ namespace prenotazione
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
+		/// Controllo LBLuser.
+		/// </summary>
+		/// <remarks>
+		/// Campo generato automaticamente.
+		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label LBLuser;
+
+		/// <summary>
+		/// Controllo LBLposti.
+		/// </summary>
+		/// <remarks>
+		/// Campo generato automaticamente.
+		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label LBLposti;
+
+		/// <summary>
+		/// Controllo BTMprenota.
+		/// </summary>
+		/// <remarks>
+		/// Campo generato automaticamente.
+		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button BTMprenota;
+
+		/// <summary>
+		/// Controllo BTMlogin.
+		/// </summary>
+		/// <remarks>
+		/// Campo generato automaticamente.
+		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button BTMlogin;
+
+		/// <summary>
 		/// Controllo BTMLog.
 		/// </summary>
 		/// <remarks>
@@ -40,6 +76,15 @@ namespace prenotazione
 		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button BTMLog;
+
+		/// <summary>
+		/// Controllo BTMesc.
+		/// </summary>
+		/// <remarks>
+		/// Campo generato automaticamente.
+		/// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button BTMesc;
 
 		/// <summary>
 		/// Controllo ContentPlaceHolder1.
