@@ -25,7 +25,8 @@ namespace prenotazione
             {
                 LBLprenotazione.Text = "Inserire una data valida";
             }
-            if (Convert.ToDateTime(TXTdate.Text) < DateTime.Today)
+            DateTime data = Convert.ToDateTime(TXTdate.Text);
+            if (data < DateTime.Today)
                 { LBLprenotazione.Text = "ATTENZIONE - Impossibile prenotare per una data gia passata"; }
             else
             {
@@ -66,8 +67,8 @@ namespace prenotazione
             }
         }
         private void GenerateBookingTable(Guid ID){
-      
-            TBLBooking.Rows.Clear();
+            LBLtable.Text = "";
+                  TBLBooking.Rows.Clear();
             TableRow headerRow = new TableRow();
             TableCell dataHeaderCell = new TableCell();
             TableCell bookingHeaderCell = new TableCell();
@@ -84,7 +85,10 @@ namespace prenotazione
 
             List<Booking> booking = DAL.getAllBooking(ID);
             foreach (Booking b in booking)
-            {
+            {if (b.prenotati == 0) {
+                    TBLBooking.Rows.Clear();
+                    LBLtable.Text = "Non hai nessuna prenotazione inserita"; break; }
+
                 TableRow row = new TableRow();
                 TableCell dateCell = new TableCell();
                 TableCell prenotaticell = new TableCell();

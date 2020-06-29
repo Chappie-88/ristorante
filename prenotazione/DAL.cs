@@ -160,7 +160,15 @@ namespace prenotazione
                     {
                         da.Fill(dt);
                     }
-                    foreach (DataRow row in dt.Rows)
+                    if (dt.Rows.Count == 0) 
+                    {
+                        Booking b = new Booking();
+                        b.prenotati = 0;
+                        booking.Add(b);
+                    }
+                    else
+
+                        foreach (DataRow row in dt.Rows)
                     {
                         Booking b = new Booking();
                         b.dataPrenotazione = DateTime.Parse(row["DataPrenotazione"].ToString());
