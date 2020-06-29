@@ -94,7 +94,7 @@ namespace prenotazione
                 TableCell prenotaticell = new TableCell();
                 //TableCell editButtonCell = new TableCell();
                 TableCell deleteButtonCell = new TableCell();
-                dateCell.Text = b.dataPrenotazione.ToString();
+                dateCell.Text = b.dataPrenotazione.ToString("dd-MM-yyyy");
                 prenotaticell.Text = b.prenotati.ToString();
                 //Button editButton = new Button();
                 //editButton.ID = p.ID.ToString() + "Edit";
